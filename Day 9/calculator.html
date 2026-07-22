@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h2 align="center">Calculator</h2>
+        <div style="width:500px;border:1px solid black ; margin:20px auto ; padding:10px">
+           <label for="number1" class="form-label">Number1</label>
+           <input type="text" class="form-control" id="number1" name="number1">
+           <br><br>
+           <label for="number2" class="form-label">Number2</label>
+           <input type="text" class="form-control" id="number2" name="number2">
+            <br><br>
+
+            <button style="background-color:orange" type="button" class="btn btn-warning" onclick="add()" >Addition</button>
+            <button style="background-color:orange" type="button" class="btn btn-warning" onclick="subtract()">Subtract</button>
+            <button style="background-color:orange" type="button" class="btn btn-warning" onclick="multiply()">Multiply</button>
+            <button style="background-color:orange"type="button" class="btn btn-warning" onclick="divide()">Division</button>
+            <button style="background-color: green" type="button" class="btn btn-warning" onclick="clearValues()">Clear</button><br><br>
+            <h3 id="result">Result : </h3>
+        </div>
+
+        <script>
+        function getValues() {
+
+    let firstNumber = Number(document.getElementById("number1").value);
+    let secondNumber = Number(document.getElementById("number2").value);
+
+    if (isNaN(firstNumber) || isNaN(secondNumber)) {
+        alert("Please enter valid numbers.");
+        return null;
+    }
+
+    return {
+        firstNumber,
+        secondNumber
+    };
+}
+  function add(){
+
+    let numbers = getValues();
+if (numbers == null) {
+    return;
+}
+    let result = numbers.firstNumber + numbers.secondNumber;
+showResult(result)
+
+}
+           function subtract(){
+
+    let numbers = getValues();
+if (numbers == null) {
+    return;
+}
+    let result = numbers.firstNumber - numbers.secondNumber;
+showResult(result)
+
+}
+            function multiply(){
+
+    let numbers = getValues();
+if (numbers == null) {
+    return;
+}
+    let result = numbers.firstNumber * numbers.secondNumber;
+showResult(result)
+
+}
+            function divide(){
+
+    let numbers = getValues();
+if (numbers == null) {
+    return;
+}
+    if(numbers.secondNumber==0){
+
+        alert("Cannot divide by zero");
+
+        return;
+
+    }
+
+    let result = numbers.firstNumber / numbers.secondNumber;
+showResult(result)
+
+}
+function clearValues(){
+
+    document.getElementById("number1").value="";
+    document.getElementById("number2").value="";
+    showResult("");
+
+}
+function showResult(result) {
+    document.getElementById("result").innerHTML = "Result : " + result;
+}
+        </script>
+    </body>
+</html>
