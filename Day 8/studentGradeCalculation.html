@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Student grade calculator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+   <div class="conteiner">
+    <div class="row">
+        <div class="col-md-8">
+            <section>
+            <form action="result.php" method="post">
+                <div class="md-3">
+                    <label for="name" class="faorm-level"> Student Name</label>
+                    <label type="text" class="form-control" id="stdname" name="name">
+                </div>
+                <div class="md-3">
+                    <label for="name" class="faorm-level"> Subject 1</label>
+                    <label type="text" class="form-control" id="sub1" name="sub1"></label>
+                </div>
+                <div class="md-3">
+                    <label for="name" class="faorm-level"> Subject 2</label>
+                    <label type="text" class="form-control" id="sub2" name="sub2"></label>
+                </div>
+                <div class="md-3">
+                    <label for="name" class="faorm-level">Subject 3</label>
+                    <label type="text" class="form-control" id="sub3" name="sub3"></label>
+                </div>
+                <div class="md-3">
+                    <label for="name" class="faorm-level"> Subject 4</label>
+                    <label type="text" class="form-control" id="sub4" name="sub4"></label>
+                </div>
+                <div class="md-3">
+                    <label for="name" class="faorm-level"> Subject 5</label>
+                    <label type="text" class="form-control" id="sub5" name="sub5"></label>
+                </div>
+                <div class="md-3">
+                    <label for="name" class="faorm-level"> Subject 6</label>
+                    <label type="text" class="form-control" id="sub6" name="sub6"></label>
+                </div>
+                <button type="submit" class="btn btn-pattern" onclick="calculate()"> Calculate </button>
+            </form>
+        </section>
+        <div class="col-md-2">
+        </div>
+        </div>
+    </div>
+ </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+   <script>
+    function calculate(){
+        alert("Grade calculation")
+        let studentName=document.getElementById("stdname").value;
+        let marks=[
+            document.getElementById("sub1").value,
+            document.getElementById("sub2").value,
+            document.getElementById("sub3").value,
+            document.getElementById("sub4").value,
+            document.getElementById("sub5").value,
+            document.getElementById("sub6").value
+        ]
+        let sum = 0;
+        let pass = true;
+        let grade
+        let result
+        if(studentName==""){
+            alert("Student should not empty")
+        }
+        for(let i=0;i<=marks.length;i++){
+            let mark= Number(marks[i])
+            sum += mark;
+            if(mark<0 && mark>=100){
+                alert("marks should be enter 0 to 100 ")
+            } 
+            if(mark< 35){
+                 pass=false;
+            }
+   
+        }
+        let avg=sum/marks.length;
+        
+    }
+   </script>
+    </body>
+</html>
