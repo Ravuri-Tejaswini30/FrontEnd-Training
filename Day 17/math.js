@@ -1,0 +1,17 @@
+export function add(a,b){
+    return a+b;
+}
+export function sub(a,b){
+    return a-b;
+}
+export function mul(a,b){
+    return a*b;
+}
+export function div(a,b){
+    if(b==0){
+        throw new error("DIvision not possible with zero");
+    }
+    return a/b;
+}
+//export all at single line by using 
+//export {add,sub,mul,div};
