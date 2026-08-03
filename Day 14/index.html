@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE>
+<html>
+    <body>
+    <script>
+        </script>
+        </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Promise</title>
+</head>
+<body>
+    <ul class="list-group">
+  <li class="list-group-item">Cras justo odio</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+    <ul id="userlist"></ul>
+    <table id="table-data">
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Pincode</td>
+        </tr>
+    </table>
+    <script>
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(users => {
+        const table = document.getElementById('table-data');
+        users.forEach(user => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = 
+            `<td>${user.name}</td>
+             <td>${user.email}</td> 
+             <td>${user.address.zipcode}</td>`;
+            table.appendChild(tr);
+        });
+    })
+.catch(error => console.error('Error fetching data:', error));
+</script>
+</body>
+</html>
